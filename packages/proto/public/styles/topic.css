@@ -87,3 +87,25 @@ h2 {
 .card h2{
     padding: 15px;
 }
+
+.grid-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header"
+        "body"
+        "footer";
+    min-height: 100vh;
+}
+
+.header {
+    grid-area: header;
+}
+
+.footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 1rem;
+    color: var(--color-support);
+    font-family: var(--font-body);
+}
