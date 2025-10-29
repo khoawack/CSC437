@@ -1,5 +1,4 @@
 html {
-    background-color: var(--color-background);
     box-sizing: border-box;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -41,6 +40,7 @@ h2 {
 }
 
 .body {
+    background-color: var(--color-background);
     display: flex;
     align-items: center;
     justify-items: center;
@@ -99,10 +99,19 @@ h2 {
 }
 
 .header {
+    display: flex;
     grid-area: header;
+    background-color: var(--color-background);
+}
+
+.header label{
+    margin-left: auto;
+    font-family: var(--font-body);
+    color: var(--color-support)
 }
 
 .footer {
+    background-color: var(--color-background);
     grid-area: footer;
     text-align: center;
     padding: 1rem;

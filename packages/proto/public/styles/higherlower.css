@@ -1,5 +1,4 @@
 html {
-    background-color: var(--color-background);
     box-sizing: border-box;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -29,6 +28,7 @@ padding: 15px;
 }
 
 .body{
+    background-color: var(--color-background);
     font-family: var(--font-body);
     display: flex;
     flex-direction: column;
@@ -100,7 +100,15 @@ padding: 15px;
 }
 
 .header {
+    display: flex;
     grid-area: header;
+    background-color: var(--color-background);
+}
+
+.header label{
+    margin-left: auto;
+    font-family: var(--font-body);
+    color: var(--color-support)
 }
 
 .footer {
@@ -109,4 +117,5 @@ padding: 15px;
     padding: 1rem;
     color: var(--color-support);
     font-family: var(--font-body);
+    background-color: var(--color-background);
 }
