@@ -10,14 +10,15 @@
 </head>
 <body>
     <main class="grid-container">
-        <header class="header">
-            <img class="logo" src="https://www.pngkey.com/png/full/54-547425_logo-one-piece-png-best-logos-of-one.png">
-            <h1>One Piece</h1>
-            <label id="theme-label">
+        <site-header
+        logo-src="https://www.freeiconspng.com/thumbs/pokeball-png/file-pokeball-png-0.png"
+        site-title="Pokemon"
+        >
+            <label id="theme-label" slot="actions">
                 <input id="theme-checkbox" type="checkbox" autocomplete="off" />
                 Light mode
             </label>
-        </header>
+        </site-header>
 
         <div class="body">
             <div class="card">
@@ -33,6 +34,12 @@
             <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
         </footer>
     </main>
+
+    <script type="module">
+        import { define } from "@calpoly/mustang";
+        import { SiteHeader } from "./../src/site-header.ts";
+        define({ "site-header": SiteHeader });
+    </script>
     <script src="../script.js"></script>
 </body>
 </html>

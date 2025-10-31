@@ -10,21 +10,22 @@
 </head>
 <body>
     <main class="grid-container">
-        <header class="header">
-            <img class="logo" src="./img/logo.png">
-            <h1>Trading Card Trivia</h1>
-                <label id="theme-label">
-                    <input id="theme-checkbox" type="checkbox" autocomplete="off" />
-                    Light mode
-                </label>
-        </header>
+        <site-header
+        logo-src="/img/logo.png"
+        site-title="Trading Card Trivia"
+        >
+            <label id="theme-label" slot="actions">
+                <input id="theme-checkbox" type="checkbox" autocomplete="off" />
+                Light mode
+            </label>
+        </site-header>
 
         <div class="body">
             <div class="card">
                 <h2>Select a topic to play</h2>
                 <ul>
-                    <li><a href="./one-piece/main.html">One Piece</a></li>
-                    <li><a href="./pokemon/main.html">Pokemon</a></li>
+                    <li><a href="/one-piece/main.html">One Piece</a></li>
+                    <li><a href="/pokemon/main.html">Pokemon</a></li>
                 </ul>   
             </div>
         </div>
@@ -34,6 +35,13 @@
         </footer>
     </main>
 
+    <script type="module">
+        import { define } from "@calpoly/mustang";
+        import { SiteHeader } from "/src/site-header.ts";
+        define({ "site-header": SiteHeader });
+    </script>
+
     <script src="./script.js"></script>
+
 </body>
 </html>

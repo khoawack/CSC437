@@ -11,13 +11,15 @@
 </head>
 <body>
     <main class="grid-container">
-        <header class="header">
-            <h1>One Piece Higher/Lower</h1>
-            <label id="theme-label">
+        <site-header
+        logo-src=""
+        site-title="One Piece Higher/Lower"
+        >
+            <label id="theme-label" slot="actions">
                 <input id="theme-checkbox" type="checkbox" autocomplete="off" />
                 Light mode
             </label>
-        </header>
+        </site-header>
 
         <div class="body">
             <h2>Guess the higer/lower value. Try to get the longest streak!</h2>
@@ -37,6 +39,11 @@
             <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
         </footer>
     </main>
+    <script type="module">
+        import { define } from "@calpoly/mustang";
+        import { SiteHeader } from "./../src/site-header.ts";
+        define({ "site-header": SiteHeader });
+    </script>
     <script src="../script.js"></script>
 </body>
 </html>
