@@ -1,0 +1,28 @@
+:root {
+    --color-main: #28de80;
+    --color-mainhover: #1d9457;
+    --color-red: #da0000;
+    --color-redhover: #a70000;
+    --color-support: white;
+    --color-background: rgb(10, 17, 25);
+    --color-card: #131b23;
+    --font-header: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    --font-size-base: 16px;
+    --font-size-heading: 2rem;
+    --font-size-subheading: 1.25rem;
+}
+
+body.light-mode {
+    --color-main: #1d9457;
+    --color-mainhover: #28de80;
+    --color-support: #0a1119;     
+    --color-background: #e8e8e8;
+    --color-card: #c9c9c9;
+
+}

@@ -8,10 +8,20 @@
     <link rel="stylesheet" href="./../styles/higherlower.css" />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
+  <script type="module" crossorigin src="/assets/pokemon-higher-lower-FxsjeKM0.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/site-header-C_C-1A0Z.js">
 </head>
 <body>
     <main class="grid-container">
-        <header-data src="./../public/data/headers.json" page="pk-hilo"/></header-data>
+        <site-header
+        logo-src=""
+        site-title="Pokemon Higher/Lower"
+        >
+            <label id="theme-label" slot="actions">
+                <input id="theme-checkbox" type="checkbox" autocomplete="off" />
+                Light mode
+            </label>
+        </site-header>
 
         <div class="body">
             <h2>Guess the higer/lower value. Try to get the longest streak!</h2>
@@ -32,15 +42,6 @@
         </footer>
     </main>
 
-    <script type="module">
-        import { define } from "@calpoly/mustang";
-        import { SiteHeader } from "./../src/site-header.ts";
-        import { HeaderDataElement} from "./../src/header-data.ts"
-
-        define({ 
-            "site-header": SiteHeader,
-            "header-data": HeaderDataElement
-         });
-    </script>
+    <script src="../script.js"></script>
 </body>
 </html>
