@@ -2,12 +2,19 @@
 import express, { Request, Response } from "express";
 import Headers from "./services/headers-svc";
 import { connect } from "./services/mongo";
+import auth, { authenticateUser } from "./routes/auth";
 
 const app = express();
 const port = process.env.PORT || 3000;
 const staticDir = process.env.STATIC || "public";
 
 connect("db");
+
+// Body parsing middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use("/auth", auth);
 
 app.use(express.static(staticDir));
 
