@@ -9,30 +9,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main class="grid-container">
-        <header-data src="/data/headers.json" page="onepiece"/></header-data>
+    <mu-auth provides="blazing:auth">
+        <main class="grid-container">
+            <header-data src="/data/headers.json" page="onepiece"/></header-data>
 
-        <div class="body">
-            <div class="card">
-                <h2>Select a game mode</h2>
-                <ul>
-                    <li><a href="value-guess.html">Value Guesser</a></li>
-                    <li><a href="higher-lower.html">Higher or Lower</a></li>
-                </ul>
+            <div class="body">
+                <div class="card">
+                    <h2>Select a game mode</h2>
+                    <ul>
+                        <li><a href="value-guess.html">Value Guesser</a></li>
+                        <li><a href="higher-lower.html">Higher or Lower</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <footer class="footer">
-            <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
-        </footer>
-    </main>
+            <footer class="footer">
+                <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
+            </footer>
+        </main>
+    </mu-auth>
 
     <script type="module">
-        import { define } from "@calpoly/mustang";
+        import { define, Auth } from "@calpoly/mustang";
         import { SiteHeader } from "./../src/site-header.ts";
         import { HeaderDataElement} from "./../src/header-data.ts"
 
         define({ 
+            "mu-auth": Auth.Provider,
             "site-header": SiteHeader,
             "header-data": HeaderDataElement
          });

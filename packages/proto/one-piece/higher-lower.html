@@ -10,33 +10,36 @@
 
 </head>
 <body>
-    <main class="grid-container">
-        <header-data src="/data/headers.json" page="op-hilo"/></header-data>
+    <mu-auth provides="blazing:auth">
+        <main class="grid-container">
+            <header-data src="/data/headers.json" page="op-hilo"/></header-data>
 
-        <div class="body">
-            <h2>Guess the higer/lower value. Try to get the longest streak!</h2>
+            <div class="body">
+                <h2>Guess the higer/lower value. Try to get the longest streak!</h2>
 
-            <div class="comparison-box">
-                <img src="https://cf.geekdo-images.com/cpyej29PfijgBDtiOuSFsQ__imagepage/img/aDMUMr-kD-RtLyOR2sKmzXtaXtk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6974116.jpg" width="300" height="400">
-                <img src="https://cf.geekdo-images.com/cpyej29PfijgBDtiOuSFsQ__imagepage/img/aDMUMr-kD-RtLyOR2sKmzXtaXtk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6974116.jpg" width="300" height="400">
+                <div class="comparison-box">
+                    <img src="https://cf.geekdo-images.com/cpyej29PfijgBDtiOuSFsQ__imagepage/img/aDMUMr-kD-RtLyOR2sKmzXtaXtk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6974116.jpg" width="300" height="400">
+                    <img src="https://cf.geekdo-images.com/cpyej29PfijgBDtiOuSFsQ__imagepage/img/aDMUMr-kD-RtLyOR2sKmzXtaXtk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6974116.jpg" width="300" height="400">
+                </div>
+
+                <div class="guess">
+                    <button id="higher">Higher</button>
+                    <button id="lower">Lower</button>
+                </div>
             </div>
 
-            <div class="guess">
-                <button id="higher">Higher</button>
-                <button id="lower">Lower</button>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
-        </footer>
-    </main>
+            <footer class="footer">
+                <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
+            </footer>
+        </main>
+    </mu-auth>
     <script type="module">
-        import { define } from "@calpoly/mustang";
+        import { define, Auth } from "@calpoly/mustang";
         import { SiteHeader } from "./../src/site-header.ts";
         import { HeaderDataElement} from "./../src/header-data.ts"
 
         define({ 
+            "mu-auth": Auth.Provider,
             "site-header": SiteHeader,
             "header-data": HeaderDataElement
          });

@@ -1,0 +1,9 @@
+[
+  { "key": "home",     "logoSrc": "/img/logo.png", "siteTitle": "Trading Card Trivia" },
+  { "key": "onepiece", "logoSrc": "https://www.pngkey.com/png/full/54-547425_logo-one-piece-png-best-logos-of-one.png", "siteTitle": "One Piece" },
+  { "key": "op-hilo",  "logoSrc": "", "siteTitle": "One Piece Higher/Lower" },
+  { "key": "op-value", "logoSrc": "", "siteTitle": "One Piece Value Guesser" },
+  { "key": "pokemon",  "logoSrc": "https://www.freeiconspng.com/thumbs/pokeball-png/file-pokeball-png-0.png", "siteTitle": "Pokemon" },
+  { "key": "pk-hilo",  "logoSrc": "", "siteTitle": "Pokemon Higher/Lower" },
+  { "key": "pk-value", "logoSrc": "", "siteTitle": "Pokemon Value Guesser" }
+]

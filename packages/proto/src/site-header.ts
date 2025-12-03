@@ -1,9 +1,34 @@
 import { html, css, LitElement } from "lit";
-import { property } from "lit/decorators.js";
+import { property, state } from "lit/decorators.js";
+import { Auth, Observer, Events } from "@calpoly/mustang";
 
 export class SiteHeader extends LitElement {
   @property({ attribute: "logo-src" }) logoSrc?: string;
   @property({ attribute: "site-title" }) siteTitle?: string;
+
+  _authObserver = new Observer<Auth.Model>(this, "blazing:auth");
+
+  @state()
+  loggedIn = false;
+
+  @state()
+  userid?: string;
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    this._authObserver.observe((auth: Auth.Model) => {
+      const { user } = auth;
+
+      if (user && user.authenticated) {
+        this.loggedIn = true;
+        this.userid = user.username;
+      } else {
+        this.loggedIn = false;
+        this.userid = undefined;
+      }
+    });
+  }
 
   override firstUpdated() {
     const checkbox = this.renderRoot.querySelector<HTMLInputElement>("#theme-checkbox");
@@ -24,23 +49,59 @@ export class SiteHeader extends LitElement {
     checkbox.addEventListener("change", () => apply(checkbox.checked));
   }
 
+  renderSignOutButton() {
+    return html`
+      <button
+        @click=${(e: UIEvent) => {
+          Events.relay(e, "auth:message", ["auth/signout"])
+        }}
+      >
+        Sign Out
+      </button>
+    `;
+  }
+
+  renderSignInButton() {
+    return html`
+      <a href="/login.html">
+        Sign In
+      </a>
+    `;
+  }
+
   override render() {
     return html`
       <header>
         ${this.logoSrc ? html`<img class="logo" src="${this.logoSrc}" alt="">` : null}
         <h1>${this.siteTitle ?? ""}</h1>
+
         <label id="theme-label">
           <input id="theme-checkbox" type="checkbox" autocomplete="off" />
           <span id="theme-text"> Light mode</span>
         </label>
+        <div class="user-info">
+          ${this.loggedIn ? html`<span>Hello, ${this.userid}</span>` : null}
+        </div>
+        <div class="auth-buttons">
+          ${this.loggedIn ?
+            this.renderSignOutButton() :
+            this.renderSignInButton()
+          }
+        </div>
       </header>
     `;
   }
 
   static styles = css`
-    header{display:flex;align-items:center;padding:15px;background:var(--color-background)}
+    header{display:flex;align-items:center;padding:15px;background:var(--color-background);gap:1rem}
     .logo{height:60px;width:100px}
     h1{margin:0 1rem 0 0;flex:1;color:var(--color-support);font-family:var(--font-header);font-weight:var(--font-weight-bold);font-size:var(--font-size-heading)}
-    #theme-label{margin-left:auto;font-family:var(--font-body);color:var(--color-support)}
+    .user-info{font-family:var(--font-body);color:var(--color-support);white-space:nowrap}
+    #theme-label{font-family:var(--font-body);color:var(--color-support);white-space:nowrap}
+    .auth-buttons{display:flex;align-items:center}
+    button{padding:0.5rem 1rem;font-family:var(--font-body);color:white;background:#007bff;border:none;border-radius:4px;cursor:pointer;white-space:nowrap;font-size:14px}
+    button:hover{opacity:0.8}
+    a{padding:0.5rem 1rem;font-family:var(--font-body);color:white;text-decoration:none;background:#007bff;border-radius:4px;display:inline-block;white-space:nowrap;font-size:14px}
+    a:hover{opacity:0.8}
   `;
 }

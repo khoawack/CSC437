@@ -10,30 +10,33 @@
 
 </head>
 <body>
-    <main class="grid-container">
+    <mu-auth provides="blazing:auth">
+        <main class="grid-container">
 
-        <header-data src="/data/headers.json" page="op-value"/></header-data>
+            <header-data src="/data/headers.json" page="op-value"/></header-data>
 
-        <div class="body">
-            <h2>Guess +- 20% of card value to win points</h2>
-            <img src="https://cf.geekdo-images.com/cpyej29PfijgBDtiOuSFsQ__imagepage/img/aDMUMr-kD-RtLyOR2sKmzXtaXtk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6974116.jpg"
-            width="300" height="400">
-            <div class="guess">
-                <input placeholder="$"></input>
-                <button>Submit</button>
+            <div class="body">
+                <h2>Guess +- 20% of card value to win points</h2>
+                <img src="https://cf.geekdo-images.com/cpyej29PfijgBDtiOuSFsQ__imagepage/img/aDMUMr-kD-RtLyOR2sKmzXtaXtk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6974116.jpg"
+                width="300" height="400">
+                <div class="guess">
+                    <input placeholder="$"></input>
+                    <button>Submit</button>
+                </div>
             </div>
-        </div>
 
-        <footer class="footer">
-            <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
-        </footer>
-    </main>
+            <footer class="footer">
+                <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
+            </footer>
+        </main>
+    </mu-auth>
     <script type="module">
-        import { define } from "@calpoly/mustang";
+        import { define, Auth } from "@calpoly/mustang";
         import { SiteHeader } from "./../src/site-header.ts";
         import { HeaderDataElement} from "./../src/header-data.ts"
 
         define({ 
+            "mu-auth": Auth.Provider,
             "site-header": SiteHeader,
             "header-data": HeaderDataElement
          });
