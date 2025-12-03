@@ -1,6 +1,5 @@
 // src/index.ts
 import express, { Request, Response, NextFunction } from "express";
-import cors from "cors";
 import Headers from "./services/headers-svc";
 import { connect } from "./services/mongo";
 import auth, { authenticateUser } from "./routes/auth";
@@ -10,11 +9,6 @@ const port = process.env.PORT || 3000;
 const staticDir = process.env.STATIC || "public";
 
 connect("db");
-
-app.use(cors({
-  origin: ["https://knguy578.csse.dev", "http://localhost:3000"],
-  credentials: true
-}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

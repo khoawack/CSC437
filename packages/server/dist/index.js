@@ -22,7 +22,6 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var import_express = __toESM(require("express"));
-var import_cors = __toESM(require("cors"));
 var import_headers_svc = __toESM(require("./services/headers-svc"));
 var import_mongo = require("./services/mongo");
 var import_auth = __toESM(require("./routes/auth"));
@@ -30,10 +29,6 @@ const app = (0, import_express.default)();
 const port = process.env.PORT || 3e3;
 const staticDir = process.env.STATIC || "public";
 (0, import_mongo.connect)("db");
-app.use((0, import_cors.default)({
-  origin: ["https://knguy578.csse.dev", "http://localhost:3000"],
-  credentials: true
-}));
 app.use(import_express.default.json());
 app.use(import_express.default.urlencoded({ extended: true }));
 app.use("/auth", import_auth.default);
