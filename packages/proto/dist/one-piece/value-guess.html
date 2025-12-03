@@ -8,29 +8,31 @@
     <link rel="stylesheet" href="./../styles/tokens.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-  <script type="module" crossorigin src="/assets/one-piece-value-guess-BWMTBWtS.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/property-BNJUEmlI.js">
-  <link rel="modulepreload" crossorigin href="/assets/header-data-0-JlyxYC.js">
+  <script type="module" crossorigin src="/assets/one-piece-value-guess-C_0kQCoz.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/state-Dq83KY5o.js">
+  <link rel="modulepreload" crossorigin href="/assets/header-data-CtPEHW3M.js">
 </head>
 <body>
-    <main class="grid-container">
+    <mu-auth provides="blazing:auth">
+        <main class="grid-container">
 
-        <header-data src="/data/headers.json" page="op-value"/></header-data>
+            <header-data src="/data/headers.json" page="op-value"/></header-data>
 
-        <div class="body">
-            <h2>Guess +- 20% of card value to win points</h2>
-            <img src="https://cf.geekdo-images.com/cpyej29PfijgBDtiOuSFsQ__imagepage/img/aDMUMr-kD-RtLyOR2sKmzXtaXtk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6974116.jpg"
-            width="300" height="400">
-            <div class="guess">
-                <input placeholder="$"></input>
-                <button>Submit</button>
+            <div class="body">
+                <h2>Guess +- 20% of card value to win points</h2>
+                <img src="https://cf.geekdo-images.com/cpyej29PfijgBDtiOuSFsQ__imagepage/img/aDMUMr-kD-RtLyOR2sKmzXtaXtk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6974116.jpg"
+                width="300" height="400">
+                <div class="guess">
+                    <input placeholder="$"></input>
+                    <button>Submit</button>
+                </div>
             </div>
-        </div>
 
-        <footer class="footer">
-            <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
-        </footer>
-    </main>
+            <footer class="footer">
+                <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
+            </footer>
+        </main>
+    </mu-auth>
 
 </body>
 </html>

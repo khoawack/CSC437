@@ -7,28 +7,30 @@
     <link rel="stylesheet" href="./../styles/topic.css" />
     <link rel="stylesheet" href="./../styles/tokens.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/pokemon-main-BWMTBWtS.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/property-BNJUEmlI.js">
-  <link rel="modulepreload" crossorigin href="/assets/header-data-0-JlyxYC.js">
+  <script type="module" crossorigin src="/assets/pokemon-main-C_0kQCoz.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/state-Dq83KY5o.js">
+  <link rel="modulepreload" crossorigin href="/assets/header-data-CtPEHW3M.js">
 </head>
 <body>
-    <main class="grid-container">
-        <header-data src="/data/headers.json" page="pokemon"/></header-data>
+    <mu-auth provides="blazing:auth">
+        <main class="grid-container">
+            <header-data src="/data/headers.json" page="pokemon"/></header-data>
 
-        <div class="body">
-            <div class="card">
-                <h2>Select a game mode</h2>
-                <ul>
-                    <li><a href="value-guess.html">Value Guesser</a></li>
-                    <li><a href="higher-lower.html">Higher or Lower</a></li>
-                </ul>
+            <div class="body">
+                <div class="card">
+                    <h2>Select a game mode</h2>
+                    <ul>
+                        <li><a href="value-guess.html">Value Guesser</a></li>
+                        <li><a href="higher-lower.html">Higher or Lower</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <footer class="footer">
-            <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
-        </footer>
-    </main>
+            <footer class="footer">
+                <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
+            </footer>
+        </main>
+    </mu-auth>
 
 </body>
 </html>

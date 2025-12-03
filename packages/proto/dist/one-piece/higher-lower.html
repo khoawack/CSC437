@@ -8,31 +8,33 @@
     <link rel="stylesheet" href="./../styles/higherlower.css" />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-  <script type="module" crossorigin src="/assets/one-piece-higher-lower-BWMTBWtS.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/property-BNJUEmlI.js">
-  <link rel="modulepreload" crossorigin href="/assets/header-data-0-JlyxYC.js">
+  <script type="module" crossorigin src="/assets/one-piece-higher-lower-C_0kQCoz.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/state-Dq83KY5o.js">
+  <link rel="modulepreload" crossorigin href="/assets/header-data-CtPEHW3M.js">
 </head>
 <body>
-    <main class="grid-container">
-        <header-data src="/data/headers.json" page="op-hilo"/></header-data>
+    <mu-auth provides="blazing:auth">
+        <main class="grid-container">
+            <header-data src="/data/headers.json" page="op-hilo"/></header-data>
 
-        <div class="body">
-            <h2>Guess the higer/lower value. Try to get the longest streak!</h2>
+            <div class="body">
+                <h2>Guess the higer/lower value. Try to get the longest streak!</h2>
 
-            <div class="comparison-box">
-                <img src="https://cf.geekdo-images.com/cpyej29PfijgBDtiOuSFsQ__imagepage/img/aDMUMr-kD-RtLyOR2sKmzXtaXtk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6974116.jpg" width="300" height="400">
-                <img src="https://cf.geekdo-images.com/cpyej29PfijgBDtiOuSFsQ__imagepage/img/aDMUMr-kD-RtLyOR2sKmzXtaXtk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6974116.jpg" width="300" height="400">
+                <div class="comparison-box">
+                    <img src="https://cf.geekdo-images.com/cpyej29PfijgBDtiOuSFsQ__imagepage/img/aDMUMr-kD-RtLyOR2sKmzXtaXtk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6974116.jpg" width="300" height="400">
+                    <img src="https://cf.geekdo-images.com/cpyej29PfijgBDtiOuSFsQ__imagepage/img/aDMUMr-kD-RtLyOR2sKmzXtaXtk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6974116.jpg" width="300" height="400">
+                </div>
+
+                <div class="guess">
+                    <button id="higher">Higher</button>
+                    <button id="lower">Lower</button>
+                </div>
             </div>
 
-            <div class="guess">
-                <button id="higher">Higher</button>
-                <button id="lower">Lower</button>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
-        </footer>
-    </main>
+            <footer class="footer">
+                <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
+            </footer>
+        </main>
+    </mu-auth>
 </body>
 </html>
