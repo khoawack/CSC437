@@ -6,13 +6,13 @@ import { connect } from "./services/mongo";
 import auth, { authenticateUser } from "./routes/auth";
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 const staticDir = process.env.STATIC || "public";
 
 connect("db");
 
 app.use(cors({
-  origin: ["http://localhost:5173"],
+  origin: ["https://knguy578.csse.dev", "http://localhost:3000"],
   credentials: true
 }));
 

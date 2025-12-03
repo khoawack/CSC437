@@ -27,11 +27,11 @@ var import_headers_svc = __toESM(require("./services/headers-svc"));
 var import_mongo = require("./services/mongo");
 var import_auth = __toESM(require("./routes/auth"));
 const app = (0, import_express.default)();
-const port = process.env.PORT || 4e3;
+const port = process.env.PORT || 3e3;
 const staticDir = process.env.STATIC || "public";
 (0, import_mongo.connect)("db");
 app.use((0, import_cors.default)({
-  origin: ["http://localhost:5173"],
+  origin: ["https://knguy578.csse.dev", "http://localhost:3000"],
   credentials: true
 }));
 app.use(import_express.default.json());
