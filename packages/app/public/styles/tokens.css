@@ -16,6 +16,17 @@
     --font-size-base: 16px;
     --font-size-heading: 2rem;
     --font-size-subheading: 1.25rem;
+    --font-size-link: 2rem;
+
+    /* View component tokens */
+    --view-padding-vertical: 2rem;
+    --view-card-width: 40vw;
+    --view-card-min-height: 40vh;
+    --view-card-border-radius: 10px;
+    --view-card-padding: 1rem;
+    --view-card-heading-padding: 15px;
+    --view-list-padding-top: 20px;
+    --view-list-line-height: 40px;
 }
 
 body.light-mode {

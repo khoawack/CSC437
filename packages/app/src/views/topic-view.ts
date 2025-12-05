@@ -5,9 +5,8 @@ export class TopicViewElement extends LitElement {
   @property()
   topic?: string;
 
-  // Compute the header page key based on topic
   get headerPage() {
-    // Convert "one-piece" -> "onepiece", "pokemon" -> "pokemon"
+    // "one-piece" -> "onepiece", "pokemon" -> "pokemon"
     return this.topic?.replace("-", "");
   }
 
@@ -42,14 +41,14 @@ export class TopicViewElement extends LitElement {
       flex-direction: column;
       font-family: var(--font-body);
       min-height: 100%;
-      padding: 2rem 0;
+      padding: var(--view-padding-vertical) 0;
     }
 
     ul {
-      padding-top: 20px;
+      padding-top: var(--view-list-padding-top);
       padding-left: 0;
       list-style-type: none;
-      line-height: 40px;
+      line-height: var(--view-list-line-height);
       text-align: center;
       margin: 0;
     }
@@ -60,7 +59,7 @@ export class TopicViewElement extends LitElement {
 
     a {
       color: var(--color-main);
-      font-size: 2rem;
+      font-size: var(--font-size-link);
       list-style-type: none;
       text-decoration: none;
       display: inline-block;
@@ -74,18 +73,18 @@ export class TopicViewElement extends LitElement {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 40vw;
-      min-height: 40vh;
-      border-radius: 10px;
+      width: var(--view-card-width);
+      min-height: var(--view-card-min-height);
+      border-radius: var(--view-card-border-radius);
       background-color: var(--color-card);
-      padding: 1rem;
+      padding: var(--view-card-padding);
       box-sizing: border-box;
     }
 
     .card h2 {
-      padding: 15px;
+      padding: var(--view-card-heading-padding);
       color: var(--color-support);
-      font-size: 2.5rem;
+      font-size: var(--font-size-heading);
     }
   `;
 }
