@@ -7,6 +7,7 @@ import { SiteHeader } from "./site-header.ts";
 import { HeaderDataElement} from "./header-data.ts"
 import { HomeViewElement } from "./views/home-view.ts";
 import { TopicViewElement } from "./views/topic-view.ts";
+import { PokemonHigherLowerViewElement } from "./views/pokemon-higher-lower-view.ts";
 
 const routes = [
   // Home/Landing page - topic selection
@@ -60,11 +61,7 @@ const routes = [
   {
     path: "/app/pokemon/higher-lower",
     view: () => html`
-      <header-data src="/data/headers.json" page="pk-hilo"></header-data>
-      <div class="body">
-        <h2>Guess the higher/lower value. Try to get the longest streak!</h2>
-        <pokemon-higher-lower-view></pokemon-higher-lower-view>
-      </div>
+      <pokemon-higher-lower-view></pokemon-higher-lower-view>
     `
   },
   
@@ -98,6 +95,7 @@ define({
     "header-data": HeaderDataElement,
     "home-view": HomeViewElement,
     "topic-view": TopicViewElement,
+    "pokemon-higher-lower-view": PokemonHigherLowerViewElement,
     "mu-switch": class AppSwitch extends Switch.Element {
         constructor() {
             super(routes, "blazing:history", "blazing:auth");
