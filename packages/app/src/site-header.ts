@@ -83,7 +83,7 @@ export class SiteHeader extends LitElement {
           <span id="theme-text"> Light mode</span>
         </label>
         <div class="user-info">
-          ${this.loggedIn ? html`<span>Hello, ${this.userid}</span>` : null}
+          ${this.loggedIn ? html`<span>User: , ${this.userid}</span>` : null}
         </div>
         <div class="auth-buttons">
           ${this.loggedIn ?
