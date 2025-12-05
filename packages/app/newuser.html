@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Trading Card App</title>
+  <title>Sign Up - Trading Card App</title>
   <link rel="stylesheet" href="/styles/index.css" />
   <link rel="stylesheet" href="/styles/tokens.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <script type="module">
     import { define, Auth } from "@calpoly/mustang";
-    import { LoginFormElement } from "/src/auth/login-form";
+    import { RegisterFormElement } from "/src/auth/register-form";
 
     define({
       "mu-auth": Auth.Provider,
-      "login-form": LoginFormElement
+      "register-form": RegisterFormElement
     });
   </script>
 </head>
@@ -22,8 +22,8 @@
     <div class="grid-container">
       <div class="body">
         <div class="card">
-          <h2>User Login</h2>
-          <login-form api="/auth/login">
+          <h2>User Sign Up</h2>
+          <register-form api="/auth/register">
             <label>
               <span>Username:</span>
               <input name="username" autocomplete="off" />
@@ -32,11 +32,11 @@
               <span>Password:</span>
               <input type="password" name="password" />
             </label>
-          </login-form>
+          </register-form>
         </div>
         <p class="auth-link">
           Or did you want to
-          <a href="newuser.html">Sign up as a new user</a>?
+          <a href="login.html">login</a>?
         </p>
       </div>
       <footer class="footer">

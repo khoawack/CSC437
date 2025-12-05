@@ -50,12 +50,45 @@ export class LoginFormElement extends LitElement {
     reset.styles,
     headings.styles,
     css`
-      .error:not(:empty) {
-        color: var(--color-error);
-        border: 1px solid var(--color-error);
-        padding: var(--size-spacing-medium);
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
       }
-  `];
+
+      button {
+        padding: 0.75rem 1.5rem;
+        background-color: var(--color-main, #28de80);
+        color: var(--color-background, rgb(10, 17, 25));
+        border: none;
+        border-radius: 5px;
+        font-family: var(--font-body, 'Inter', sans-serif);
+        font-size: 1rem;
+        font-weight: var(--font-weight-medium, 500);
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      button:hover:not(:disabled) {
+        background-color: var(--color-mainhover, #1d9457);
+      }
+
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .error:not(:empty) {
+        color: var(--color-red, #da0000);
+        border: 1px solid var(--color-red, #da0000);
+        padding: var(--size-spacing-medium, 1rem);
+        margin-top: var(--size-spacing-medium, 1rem);
+        border-radius: 5px;
+        background-color: rgba(218, 0, 0, 0.1);
+      }
+    `
+  ];
 
     handleChange(event: InputEvent) {
         const target = event.target as HTMLInputElement;

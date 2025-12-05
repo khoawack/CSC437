@@ -86,7 +86,7 @@ h2 {
     align-items: center;
 
     width: 40vw;
-    height: 35vh;
+    min-height: 35vh;
     border-radius: 10px;
 
     background-color: var(--color-card, #131b23);
@@ -125,3 +125,97 @@ h2 {
     color: var(--color-support, white);
     font-family: var(--font-body, 'Inter', sans-serif);
 }
+
+/* Auth pages styling */
+.auth-link {
+    color: var(--color-support, white);
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.auth-link a {
+    color: var(--color-main, #28de80);
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.auth-link a:hover {
+    color: var(--color-mainhover, #1d9457);
+    text-decoration: underline;
+}
+
+/* Form styling for auth pages */
+login-form, register-form {
+    width: 100%;
+}
+
+login-form form, register-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    width: 100%;
+}
+
+login-form label, register-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--color-support, white);
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: 1rem;
+}
+
+login-form input, register-form input {
+    padding: 0.75rem;
+    border: 1px solid var(--color-main, #28de80);
+    border-radius: 5px;
+    background-color: var(--color-background, rgb(10, 17, 25));
+    color: var(--color-support, white);
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: 1rem;
+}
+
+login-form input:focus, register-form input:focus {
+    outline: none;
+    border-color: var(--color-mainhover, #1d9457);
+    box-shadow: 0 0 0 2px rgba(40, 222, 128, 0.2);
+}
+
+login-form button, register-form button {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--color-main, #28de80), var(--color-mainhover, #1d9457));
+    color: var(--color-background, rgb(10, 17, 25));
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-bold, 700);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(40, 222, 128, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 0.5rem;
+}
+
+login-form button:hover:not(:disabled), register-form button:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--color-mainhover, #1d9457), var(--color-main, #28de80));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(40, 222, 128, 0.4);
+}
+
+login-form button:active:not(:disabled), register-form button:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(40, 222, 128, 0.3);
+}
+
+login-form button:disabled, register-form button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
