@@ -1,5 +1,5 @@
 import { define, Auth, History, Switch } from "@calpoly/mustang";
-import { html, LitElement } from "lit";
+import { html } from "lit";
 import { SiteHeader } from "./site-header.ts";
 import { HeaderDataElement} from "./header-data.ts"
 import { HomeViewElement } from "./views/home-view.ts";
