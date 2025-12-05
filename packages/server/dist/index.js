@@ -25,6 +25,7 @@ var import_express = __toESM(require("express"));
 var import_headers_svc = __toESM(require("./services/headers-svc"));
 var import_mongo = require("./services/mongo");
 var import_auth = __toESM(require("./routes/auth"));
+var import_headers = __toESM(require("./routes/headers"));
 var import_promises = __toESM(require("node:fs/promises"));
 var import_path = __toESM(require("path"));
 const app = (0, import_express.default)();
@@ -34,6 +35,7 @@ const staticDir = process.env.STATIC || "public";
 app.use(import_express.default.json());
 app.use(import_express.default.urlencoded({ extended: true }));
 app.use("/auth", import_auth.default);
+app.use("/api/header", import_auth.authenticateUser, import_headers.default);
 app.use(import_express.default.static(staticDir));
 app.use("/app", (req, res) => {
   const indexHtml = import_path.default.resolve(staticDir, "index.html");

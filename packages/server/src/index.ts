@@ -3,6 +3,7 @@ import express, { Request, Response, NextFunction } from "express";
 import Headers from "./services/headers-svc";
 import { connect } from "./services/mongo";
 import auth, { authenticateUser } from "./routes/auth";
+import headerRoutes from "./routes/headers";
 import fs from "node:fs/promises";
 import path from "path";
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/auth", auth);
+app.use("/api/header", authenticateUser, headerRoutes);
 
 app.use(express.static(staticDir));
 

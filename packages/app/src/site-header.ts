@@ -63,7 +63,10 @@ export class SiteHeader extends LitElement {
 
   renderSignInButton() {
     return html`
-      <a href="/login.html">
+      <a href="/login.html" @click=${(e: MouseEvent) => {
+        e.preventDefault();
+        window.location.href = "/login.html";
+      }}>
         Sign In
       </a>
     `;
@@ -95,9 +98,9 @@ export class SiteHeader extends LitElement {
   static styles = css`
     header{display:flex;align-items:center;padding:15px;background:var(--color-background);gap:1rem}
     .logo{height:60px;width:100px}
-    h1{margin:0 1rem 0 0;flex:1;color:var(--color-support);font-family:var(--font-header);font-weight:var(--font-weight-bold);font-size:var(--font-size-heading)}
-    .user-info{font-family:var(--font-body);color:var(--color-support);white-space:nowrap}
-    #theme-label{font-family:var(--font-body);color:var(--color-support);white-space:nowrap}
+    h1{margin:0 1rem 0 0;flex:1;color:var(--color-support, white);font-family:var(--font-header, 'Plus Jakarta Sans', sans-serif);font-weight:var(--font-weight-bold, 700);font-size:var(--font-size-heading, 2rem)}
+    .user-info{font-family:var(--font-body, 'Inter', sans-serif);color:var(--color-support, white);white-space:nowrap}
+    #theme-label{font-family:var(--font-body, 'Inter', sans-serif);color:var(--color-support, white);white-space:nowrap}
     .auth-buttons{display:flex;align-items:center}
     button{padding:0.5rem 1rem;font-family:var(--font-body);color:white;background:#007bff;border:none;border-radius:4px;cursor:pointer;white-space:nowrap;font-size:14px}
     button:hover{opacity:0.8}
