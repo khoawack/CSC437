@@ -1,13 +1,38 @@
-import { css, html, LitElement } from "lit";
-import { property } from "lit/decorators.js";
+import { View } from "@calpoly/mustang";
+import { css, html } from "lit";
+import { property, state } from "lit/decorators.js";
+import { Msg } from "../messages";
+import { Model } from "../model";
+import { Headers } from "../../../server/src/models";
 
-export class TopicViewElement extends LitElement {
+export class TopicViewElement extends View<Model, Msg> {
   @property()
   topic?: string;
+
+  @state()
+  get header(): Headers | undefined {
+    return this.model.header;
+  }
 
   get headerPage() {
     // "one-piece" -> "onepiece", "pokemon" -> "pokemon"
     return this.topic?.replace("-", "");
+  }
+
+  constructor() {
+    super("blazing:auth");
+  }
+
+  attributeChangedCallback(
+    name: string,
+    oldValue: string,
+    newValue: string
+  ) {
+    super.attributeChangedCallback(name, oldValue, newValue);
+    if (name === "topic" && oldValue !== newValue && newValue) {
+      const key = newValue.replace("-", "");
+      this.dispatchMessage(["header/request", { key }]);
+    }
   }
 
   render() {

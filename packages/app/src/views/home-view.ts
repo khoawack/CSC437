@@ -1,6 +1,25 @@
-import { css, html, LitElement } from "lit";
+import { View } from "@calpoly/mustang";
+import { css, html } from "lit";
+import { state } from "lit/decorators.js";
+import { Msg } from "../messages";
+import { Model } from "../model";
+import { Headers } from "../../../server/src/models";
 
-export class HomeViewElement extends LitElement {
+export class HomeViewElement extends View<Model, Msg> {
+  @state()
+  get header(): Headers | undefined {
+    return this.model.header;
+  }
+
+  constructor() {
+    super("blazing:auth");
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.dispatchMessage(["header/request", { key: "home" }]);
+  }
+
   render() {
     return html`
       <header-data src="/data/headers.json" page="home"></header-data>

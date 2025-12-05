@@ -1,5 +1,8 @@
-import { define, Auth, History, Switch } from "@calpoly/mustang";
+import { define, Auth, History, Switch, Store } from "@calpoly/mustang";
 import { html } from "lit";
+import { Msg } from "./messages";
+import { Model, init } from "./model";
+import update from "./update";
 import { SiteHeader } from "./site-header.ts";
 import { HeaderDataElement} from "./header-data.ts"
 import { HomeViewElement } from "./views/home-view.ts";
@@ -86,6 +89,11 @@ const routes = [
 define({ 
     "mu-auth": Auth.Provider,
     "mu-history": History.Provider,
+    "mu-store": class AppStore extends Store.Provider<Model, Msg> {
+        constructor() {
+            super(update, init, "blazing:auth");
+        }
+    },
     "site-header": SiteHeader,
     "header-data": HeaderDataElement,
     "home-view": HomeViewElement,

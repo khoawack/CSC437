@@ -11,23 +11,25 @@
 <body>
     <mu-history provides="blazing:history">
         <mu-auth provides="blazing:auth">
-            <main class="grid-container">
-                <mu-switch>
-                    <header-data src="/data/headers.json" page="home"/></header-data>
-                    <div class="body">
-                        <div class="card">
-                            <h2>Select a topic to play</h2>
-                            <ul>
-                                <li><a href="/one-piece/main.html">One Piece</a></li>
-                                <li><a href="/pokemon/main.html">Pokemon</a></li>
-                            </ul>   
+            <mu-store provides="blazing:model">
+                <main class="grid-container">
+                    <mu-switch>
+                        <header-data src="/data/headers.json" page="home"/></header-data>
+                        <div class="body">
+                            <div class="card">
+                                <h2>Select a topic to play</h2>
+                                <ul>
+                                    <li><a href="/one-piece/main.html">One Piece</a></li>
+                                    <li><a href="/pokemon/main.html">Pokemon</a></li>
+                                </ul>   
+                            </div>
                         </div>
-                    </div>
-                </mu-switch>
-                <footer class="footer">
-                    <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
-                </footer>
-            </main>
+                    </mu-switch>
+                    <footer class="footer">
+                        <p>Trading Card Trivia. Coded by Khoa Nguyen.</p>
+                    </footer>
+                </main>
+            </mu-store>
         </mu-auth>
     </mu-history>
 
