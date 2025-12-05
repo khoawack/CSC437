@@ -1,0 +1,104 @@
+html {
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+h1 {
+    color: var(--color-support);
+    font-family: var(--font-header);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-heading);
+}
+
+h2 {
+    color: var(--color-support);
+    font-size: 2rem;
+    padding: 15px;
+}
+
+.header{
+padding: 15px;
+}
+
+.body{
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-background);
+}
+
+.guess{
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    align-items: center;
+
+    width: 200px;
+    height: 100px;
+    gap:5px;
+}
+
+.guess input{
+    font-size: 2em;
+    height: 40px;
+    width: 250px;
+    color:rgb(255, 255, 255);
+    background: rgb(20, 52, 74);
+
+    border-radius: 10px;
+    border: 1px;
+    padding-left:10px;
+}
+
+.guess button{
+    font-size: 1.5em;
+    height: 40px;
+    width: 200px;
+
+    border-radius: 10px;
+    color:rgb(255, 255, 255);
+    background: var(--color-main);
+}
+
+.guess button:hover{
+    background: var(--color-mainhover);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header"
+        "body"
+        "footer";
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    grid-area: header;
+    background-color: var(--color-background);
+}
+
+.header label{
+    margin-left: auto;
+    font-family: var(--font-body);
+    color: var(--color-support)
+}
+
+.footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 1rem;
+    color: var(--color-support);
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+}
