@@ -71,7 +71,6 @@ export class PokemonHigherLowerViewElement extends View<Model, Msg> {
       
       const randomOffset = Math.floor(Math.random() * (200 - 20 + 1)) + 20;
       console.log('Using random offset:', randomOffset);
-      
       const response = await fetch(
         `https://api.justtcg.com/v1/cards?game=Pokemon&limit=20&condition=Near%20Mint&printing=Holofoil&language=English&rarity=Ultra%20Rare,Promo,Rare&offset=${randomOffset}`,
         {
@@ -105,12 +104,14 @@ export class PokemonHigherLowerViewElement extends View<Model, Msg> {
   initializeCards() {
     // initialize card1
     if (!this.card1 && this.cards.length > 0) {
-      this.card1 = this.cards.pop();
+      const randomIndex = Math.floor(Math.random() * this.cards.length);
+      this.card1 = this.cards.splice(randomIndex, 1)[0];
       console.log('Initialized card1:', this.card1);
     }
     // initialize card2 if it's missing and we have cards
     if (!this.card2 && this.cards.length > 0) {
-      this.card2 = this.cards.pop();
+      const randomIndex = Math.floor(Math.random() * this.cards.length);
+      this.card2 = this.cards.splice(randomIndex, 1)[0];
       console.log('Initialized card2:', this.card2);
     }
   }
@@ -174,8 +175,8 @@ export class PokemonHigherLowerViewElement extends View<Model, Msg> {
     const card1Price = this.card1.variants?.[0]?.price || 0;
     const card2Price = this.card2.variants?.[0]?.price || 0;
 
-    // check if card2 is lower than card1 (card1 is higher)
-    if (card2Price < card1Price) {
+    // check if card2 is lower than or eq to card1 (card1 is higher)
+    if (card2Price <= card1Price) {
       // correct guess
       this.score += 1;
       // update highest streak if current is higher
@@ -189,10 +190,11 @@ export class PokemonHigherLowerViewElement extends View<Model, Msg> {
       this.guessStatus = 'incorrect';
     }
 
-    // move card2 to card1 and pop a new card for card2
+    // move card2 to card1 and get a random new card for card2
     this.card1 = this.card2;
     if (this.cards.length > 0) {
-      this.card2 = this.cards.pop();
+      const randomIndex = Math.floor(Math.random() * this.cards.length);
+      this.card2 = this.cards.splice(randomIndex, 1)[0];
     } else {
 
       // no more cards - refresh the list
@@ -209,8 +211,8 @@ export class PokemonHigherLowerViewElement extends View<Model, Msg> {
     const card1Price = this.card1.variants?.[0]?.price || 0;
     const card2Price = this.card2.variants?.[0]?.price || 0;
 
-    // check if card2 is higher than card1 (card1 is lower)
-    if (card2Price > card1Price) {
+    // check if card2 is higher than or eq to card1 (card1 is lower)
+    if (card2Price >= card1Price) {
       // correct guess - increment current streak
       this.score += 1;
       // update highest streak if current is higher
@@ -224,10 +226,11 @@ export class PokemonHigherLowerViewElement extends View<Model, Msg> {
       this.guessStatus = 'incorrect';
     }
 
-    // move card2 to card1 and pop a new card for card2
+    // move card2 to card1 and get a random new card for card2
     this.card1 = this.card2;
     if (this.cards.length > 0) {
-      this.card2 = this.cards.pop();
+      const randomIndex = Math.floor(Math.random() * this.cards.length);
+      this.card2 = this.cards.splice(randomIndex, 1)[0];
     } else {
       // no more cards - refresh the list
       console.log('Cards depleted. Refreshing card list...');
